@@ -6,6 +6,7 @@ import { Button } from './button'
 import { ArrowRight, Sparkles } from 'lucide-react'
 import Link from 'next/link'
 import { COMPANY_INFO } from '@/lib/constants'
+import { BackgroundEffects } from './background-effects'
 
 export function Hero() {
   const [ref, inView] = useInView({
@@ -49,46 +50,9 @@ export function Hero() {
   }
 
   return (
-    <section className="hero-bg min-h-screen flex items-center justify-center relative">
-      {/* Floating elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          className="absolute top-20 left-10 w-20 h-20 bg-brand/10 rounded-full blur-xl"
-          animate={{
-            y: [0, -20, 0],
-            x: [0, 10, 0],
-          }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
-        <motion.div
-          className="absolute top-40 right-20 w-16 h-16 bg-aluminum/20 rounded-full blur-lg"
-          animate={{
-            y: [0, 15, 0],
-            x: [0, -15, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
-        <motion.div
-          className="absolute bottom-40 left-1/4 w-12 h-12 bg-brand/15 rounded-full blur-md"
-          animate={{
-            y: [0, -25, 0],
-            x: [0, 20, 0],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
-      </div>
+    <section className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-white via-gray-50 to-white">
+      {/* Background Effects */}
+      <BackgroundEffects variant="hero" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div

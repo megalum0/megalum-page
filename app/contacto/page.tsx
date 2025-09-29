@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { Section } from '@/components/section'
 import { Button } from '@/components/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/card'
+import { PageHero } from '@/components/page-hero'
 import { generatePageSEO } from '@/lib/seo'
 import { COMPANY_INFO } from '@/lib/constants'
 import { Phone, Mail, MapPin, MessageCircle, Clock, Send } from 'lucide-react'
@@ -19,16 +20,16 @@ export default function ContactoPage() {
   const whatsappUrl = generateWhatsAppURL(COMPANY_INFO.whatsapp, whatsappMessage)
 
   return (
-    <Section>
-      <div className="text-center mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold text-ink mb-6">
-          Contáctanos
-        </h1>
-        <p className="text-xl text-gray-500 max-w-3xl mx-auto">
-          Estamos listos para ayudarte con tu proyecto. Contáctanos y recibe una 
-          cotización personalizada sin compromiso.
-        </p>
-      </div>
+    <>
+      {/* Hero Section */}
+      <PageHero
+        title="Contáctanos"
+        subtitle="Estamos listos para ayudarte con tu proyecto. Contáctanos y recibe una cotización personalizada sin compromiso."
+        variant="contact"
+        showButtons={false}
+      />
+
+      <Section>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Contact Information */}
@@ -217,6 +218,7 @@ export default function ContactoPage() {
           </Card>
         </div>
       </div>
-    </Section>
+      </Section>
+    </>
   )
 }

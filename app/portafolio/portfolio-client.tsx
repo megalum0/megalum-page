@@ -7,6 +7,7 @@ import { Button } from '@/components/button'
 import { PortfolioCard } from '@/components/portfolio-card'
 import { PortfolioFilter } from '@/components/portfolio-filter'
 import { PortfolioGallery } from '@/components/portfolio-gallery'
+import { PageHero } from '@/components/page-hero'
 import { AnimatedSection, AnimatedItem } from '@/components/animated-section'
 import { COMPANY_INFO, PORTFOLIO_CATEGORIES, PORTFOLIO_ITEMS } from '@/lib/constants'
 import { ArrowRight } from 'lucide-react'
@@ -60,63 +61,36 @@ export function PortfolioClient() {
   return (
     <>
       {/* Hero Section */}
-      <Section className="bg-gradient-to-br from-brand/5 via-brand/10 to-brand/5">
+      <PageHero
+        title="Nuestro Portafolio"
+        subtitle={`Más de ${yearsOfExperience} años de experiencia materializados en proyectos exitosos que demuestran nuestra calidad y compromiso con la excelencia`}
+        variant="portfolio"
+        primaryButtonText="Solicitar cotización"
+        primaryButtonHref="/contacto"
+        secondaryButtonText="Ver nuestros servicios"
+        secondaryButtonHref="/servicios"
+      />
+
+      {/* Statistics Section */}
+      <Section className="bg-gray-50">
         <AnimatedSection>
-          <div className="text-center max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <AnimatedItem>
-              <h1 className="text-4xl md:text-6xl font-bold text-ink mb-6">
-                Nuestro Portafolio
-              </h1>
-            </AnimatedItem>
-            <AnimatedItem delay={0.2}>
-              <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
-                Más de {yearsOfExperience} años de experiencia materializados en proyectos exitosos que demuestran nuestra calidad y compromiso con la excelencia
-              </p>
-            </AnimatedItem>
-            
-            {/* Statistics */}
-            <AnimatedItem delay={0.4}>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-                <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-brand mb-2">{totalProjects}+</div>
-                  <div className="text-gray-600">Proyectos Completados</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-brand mb-2">{totalCategories}</div>
-                  <div className="text-gray-600">Categorías de Servicio</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-brand mb-2">{yearsOfExperience}+</div>
-                  <div className="text-gray-600">Años de Experiencia</div>
-                </div>
+              <div className="text-center">
+                <div className="text-3xl md:text-4xl font-bold text-brand mb-2">{totalProjects}+</div>
+                <div className="text-gray-600">Proyectos Completados</div>
               </div>
             </AnimatedItem>
-
-            <AnimatedItem delay={0.6}>
-              <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <Button 
-                  size="lg" 
-                  className="bg-brand hover:bg-brand-dark text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-0" 
-                  asChild
-                >
-                  <Link href="/contacto" className="flex items-center gap-3">
-                    <span>Solicitar cotización</span>
-                    <ArrowRight className="h-5 w-5" />
-                  </Link>
-                </Button>
-                <Button 
-                  variant="outline" 
-                  size="lg" 
-                  className="border-2 border-brand text-brand hover:bg-brand hover:text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105" 
-                  asChild
-                >
-                  <Link href="/servicios" className="flex items-center gap-3">
-                    <span>Ver nuestros servicios</span>
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                    </svg>
-                  </Link>
-                </Button>
+            <AnimatedItem delay={0.2}>
+              <div className="text-center">
+                <div className="text-3xl md:text-4xl font-bold text-brand mb-2">{totalCategories}</div>
+                <div className="text-gray-600">Categorías de Servicio</div>
+              </div>
+            </AnimatedItem>
+            <AnimatedItem delay={0.4}>
+              <div className="text-center">
+                <div className="text-3xl md:text-4xl font-bold text-brand mb-2">{yearsOfExperience}+</div>
+                <div className="text-gray-600">Años de Experiencia</div>
               </div>
             </AnimatedItem>
           </div>
