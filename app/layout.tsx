@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { Header } from '@/components/header'
@@ -10,13 +10,24 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   ...defaultSEO,
-  viewport: 'width=device-width, initial-scale=1',
-  themeColor: '#8E1B2B',
+  metadataBase: new URL('https://megalumcenter.com'),
   manifest: '/manifest.json',
   icons: {
-    icon: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
+    icon: '/logoico.ico',
+    shortcut: '/logoico.ico',
+    apple: '/logoico.ico',
   },
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#8E1B2B' },
+    { media: '(prefers-color-scheme: dark)', color: '#6F1522' }
+  ],
 }
 
 export default function RootLayout({
@@ -28,7 +39,7 @@ export default function RootLayout({
     <html lang="es" className="scroll-smooth">
       <body className={inter.className}>
         <Header />
-        <main className="min-h-screen">
+        <main className="min-h-screen pt-16">
           {children}
         </main>
         <Footer />

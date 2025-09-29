@@ -2,14 +2,13 @@ import { Section } from '@/components/section'
 import { Grid } from '@/components/grid'
 import { Button } from '@/components/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/card'
-import { ServiceCard } from '@/components/service-card'
 import { Testimonial } from '@/components/testimonial'
 import { Hero } from '@/components/hero'
+import { ServicesCarousel } from '@/components/services-carousel'
 import { AnimatedSection, AnimatedItem } from '@/components/animated-section'
-import { COMPANY_INFO, SERVICES, DIFFERENTIALS, TESTIMONIALS } from '@/lib/constants'
-import { Shield, Users, CheckCircle, Wrench, ArrowRight, Star } from 'lucide-react'
+import { COMPANY_INFO, DIFFERENTIALS, TESTIMONIALS } from '@/lib/constants'
+import { Shield, Users, CheckCircle, Wrench, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
-import Image from 'next/image'
 
 const iconMap = {
   Shield,
@@ -79,24 +78,19 @@ export default function HomePage() {
               </p>
             </AnimatedItem>
           </div>
-          <Grid cols={3} gap="lg">
-            {SERVICES.map((service, index) => (
-              <AnimatedItem key={service.id} delay={0.1 * index}>
-                <ServiceCard
-                  title={service.title}
-                  description={service.description}
-                  slug={service.slug}
-                  image={`https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop&crop=center&auto=format&q=80`}
-                />
-              </AnimatedItem>
-            ))}
-          </Grid>
-          <AnimatedItem delay={0.8}>
+          <AnimatedItem delay={0.4}>
+            <ServicesCarousel />
+          </AnimatedItem>
+          <AnimatedItem delay={0.6}>
             <div className="text-center mt-12">
-              <Button variant="outline" size="lg" asChild>
-                <Link href="/servicios">
-                  Ver todos los servicios
-                  <ArrowRight className="ml-2 h-5 w-5" />
+              <Button 
+                size="lg" 
+                className="bg-brand hover:bg-brand-dark text-white px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105" 
+                asChild
+              >
+                <Link href="/servicios" className="flex items-center gap-3">
+                  <span>Ver todos los servicios</span>
+                  <ArrowRight className="h-5 w-5" />
                 </Link>
               </Button>
             </div>
@@ -104,40 +98,6 @@ export default function HomePage() {
         </AnimatedSection>
       </Section>
 
-      {/* Portfolio Teaser */}
-      <Section>
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-ink mb-4">
-            Nuestro Portafolio
-          </h2>
-          <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-            Proyectos exitosos que demuestran nuestra calidad y experiencia
-          </p>
-        </div>
-        <Grid cols={3} gap="lg">
-          {[1, 2, 3, 4, 5, 6].map((item) => (
-            <div key={item} className="group cursor-pointer">
-              <div className="aspect-video overflow-hidden rounded-lg bg-gray-200">
-                <Image
-                  src={`https://images.unsplash.com/photo-${1558618666 + item}?w=400&h=300&fit=crop&crop=center&auto=format&q=80`}
-                  alt={`Proyecto ${item}`}
-                  width={400}
-                  height={300}
-                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
-            </div>
-          ))}
-        </Grid>
-        <div className="text-center mt-12">
-          <Button size="lg" asChild>
-            <Link href="/portafolio">
-              Ver portafolio completo
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-          </Button>
-        </div>
-      </Section>
 
       {/* Testimonials Section */}
       <Section className="bg-gray-50">

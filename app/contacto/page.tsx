@@ -4,7 +4,8 @@ import { Button } from '@/components/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/card'
 import { generatePageSEO } from '@/lib/seo'
 import { COMPANY_INFO } from '@/lib/constants'
-import { Phone, Mail, MapPin, MessageCircle, Clock } from 'lucide-react'
+import { Phone, Mail, MapPin, MessageCircle, Clock, Send } from 'lucide-react'
+import { FaWhatsapp } from 'react-icons/fa'
 import { generateWhatsAppURL } from '@/lib/utils'
 
 export const metadata: Metadata = generatePageSEO(
@@ -95,20 +96,43 @@ export default function ContactoPage() {
             </CardContent>
           </Card>
 
-          <Card>
-            <CardHeader>
-              <CardTitle>WhatsApp</CardTitle>
-              <CardDescription>
-                Escríbenos directamente por WhatsApp para una respuesta más rápida
-              </CardDescription>
+          <Card className="relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-green-50 to-emerald-50 opacity-50"></div>
+            <CardHeader className="relative">
+              <div className="flex items-center space-x-3 mb-2">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
+                  <FaWhatsapp className="h-6 w-6 text-green-600" />
+                </div>
+                <div>
+                  <CardTitle className="text-ink">WhatsApp</CardTitle>
+                  <CardDescription className="text-gray-600">
+                    Respuesta inmediata disponible
+                  </CardDescription>
+                </div>
+              </div>
             </CardHeader>
-            <CardContent>
-              <Button size="lg" className="w-full bg-green-500 hover:bg-green-600" asChild>
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="mr-2 h-5 w-5" />
-                  Chatear por WhatsApp
-                </a>
-              </Button>
+            <CardContent className="relative space-y-4">
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Escríbenos directamente por WhatsApp para una respuesta más rápida y personalizada. 
+                Nuestro equipo está disponible para atenderte.
+              </p>
+              <div className="flex flex-col space-y-3">
+                <div className="flex items-center space-x-2 text-sm text-gray-500">
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                  <span>En línea ahora</span>
+                </div>
+                <Button 
+                  size="lg" 
+                  className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]" 
+                  asChild
+                >
+                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center space-x-3">
+                    <FaWhatsapp className="h-5 w-5" />
+                    <span>Chatear por WhatsApp</span>
+                    <Send className="h-4 w-4" />
+                  </a>
+                </Button>
+              </div>
             </CardContent>
           </Card>
         </div>

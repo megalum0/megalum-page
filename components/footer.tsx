@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { Phone, Mail, MapPin, MessageCircle } from 'lucide-react'
+import { Phone, Mail, MapPin } from 'lucide-react'
+import { FaWhatsapp } from 'react-icons/fa'
 import { Logo } from './logo'
 import { COMPANY_INFO } from '@/lib/constants'
 import { generateWhatsAppURL } from '@/lib/utils'
@@ -14,7 +15,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <Logo size="md" showText={true} />
+            <Logo size="md" showText={true} variant="white" />
             <p className="text-gray-300 text-sm leading-relaxed">
               {COMPANY_INFO.slogan}
             </p>
@@ -90,7 +91,7 @@ export function Footer() {
                 </span>
               </div>
               <div className="flex items-center space-x-3">
-                <MessageCircle className="h-5 w-5 text-brand" />
+                <FaWhatsapp className="h-5 w-5 text-brand" />
                 <a 
                   href={whatsappUrl}
                   target="_blank"

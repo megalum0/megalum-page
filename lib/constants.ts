@@ -99,3 +99,12 @@ export const NAVIGATION = [
   { name: 'Quiénes Somos', href: '/quienes-somos' },
   { name: 'Contacto', href: '/contacto' },
 ]
+
+// Re-export portfolio data from portfolio-data.ts
+export { 
+  PORTFOLIO_CATEGORIES, 
+  PORTFOLIO_ITEMS, 
+  getPortfolioByCategory, 
+  getFeaturedPortfolio, 
+  getPortfolioCategory 
+} from './portfolio-data'
