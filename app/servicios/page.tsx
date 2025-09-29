@@ -4,7 +4,7 @@ import { Grid } from '@/components/grid'
 import { Button } from '@/components/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/card'
 import { AnimatedSection, AnimatedItem } from '@/components/animated-section'
-import { PageHero } from '@/components/page-hero'
+import { ServicesHeroBackground } from '@/components/services-hero-background'
 import { generatePageSEO } from '@/lib/seo'
 import { COMPANY_INFO } from '@/lib/constants'
 import { ArrowRight, CheckCircle, Star, Users, Award } from 'lucide-react'
@@ -128,15 +128,45 @@ export default function ServiciosPage() {
   return (
     <>
       {/* Hero Section */}
-      <PageHero
-        title="Nuestros Servicios"
-        subtitle={`Soluciones integrales en vidrios, aluminio y acero inoxidable para proyectos residenciales y comerciales en ${COMPANY_INFO.city}`}
-        variant="services"
-        primaryButtonText="Solicitar cotización"
-        primaryButtonHref="/contacto"
-        secondaryButtonText="Ver nuestro trabajo"
-        secondaryButtonHref="/portafolio"
-      />
+      <section className="min-h-[70vh] flex items-center justify-center relative">
+        {/* Fondo Animado */}
+        <ServicesHeroBackground />
+        
+        {/* Contenido */}
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center max-w-4xl mx-auto">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-6">
+              Nuestros Servicios
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+              Soluciones integrales en vidrios, aluminio y acero inoxidable para proyectos residenciales y comerciales en {COMPANY_INFO.city}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Button 
+                size="lg" 
+                className="bg-brand hover:bg-brand-dark text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105" 
+                asChild
+              >
+                <Link href="/contacto" className="flex items-center gap-3">
+                  <span>Solicitar cotización</span>
+                  <ArrowRight className="h-5 w-5" />
+                </Link>
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="border-2 border-brand text-brand hover:bg-brand hover:text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105" 
+                asChild
+              >
+                <Link href="/portafolio" className="flex items-center gap-3">
+                  <span>Ver nuestro trabajo</span>
+                  <ArrowRight className="h-5 w-5" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Benefits Section */}
       <Section>

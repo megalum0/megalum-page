@@ -3,9 +3,10 @@ import { Section } from '@/components/section'
 import { Grid } from '@/components/grid'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/card'
 import { Button } from '@/components/button'
+import { AboutHeroBackground } from '@/components/about-hero-background'
 import { generatePageSEO } from '@/lib/seo'
 import { DIFFERENTIALS } from '@/lib/constants'
-import { Shield, Users, CheckCircle, Wrench, Award, Target, Heart } from 'lucide-react'
+import { Shield, Users, CheckCircle, Wrench, Award, Target, Heart, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -44,17 +45,45 @@ export default function QuienesSomosPage() {
   return (
     <>
       {/* Hero Section */}
-      <Section className="bg-gradient-to-br from-white to-gray-50">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-ink mb-6">
-            Quiénes Somos
-          </h1>
-          <p className="text-xl text-gray-500 mb-8">
-            Más de 10 años de experiencia brindando soluciones de calidad en vidrios, 
-            aluminio y acero inoxidable en Ibagué y toda la región del Tolima.
-          </p>
+      <section className="min-h-[70vh] flex items-center justify-center relative">
+        {/* Fondo Animado */}
+        <AboutHeroBackground />
+        
+        {/* Contenido */}
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center max-w-4xl mx-auto">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-6">
+              Quiénes Somos
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+              Más de 10 años de experiencia brindando soluciones de calidad en vidrios, aluminio y acero inoxidable en Ibagué y toda la región del Tolima.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Button 
+                size="lg" 
+                className="bg-brand hover:bg-brand-dark text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105" 
+                asChild
+              >
+                <Link href="/contacto" className="flex items-center gap-3">
+                  <span>Contactar ahora</span>
+                  <ArrowRight className="h-5 w-5" />
+                </Link>
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="border-2 border-brand text-brand hover:bg-brand hover:text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105" 
+                asChild
+              >
+                <Link href="/servicios" className="flex items-center gap-3">
+                  <span>Ver nuestros servicios</span>
+                  <ArrowRight className="h-5 w-5" />
+                </Link>
+              </Button>
+            </div>
+          </div>
         </div>
-      </Section>
+      </section>
 
       {/* About Section */}
       <Section>

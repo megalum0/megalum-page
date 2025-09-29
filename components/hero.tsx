@@ -6,7 +6,6 @@ import { Button } from './button'
 import { ArrowRight, Sparkles } from 'lucide-react'
 import Link from 'next/link'
 import { COMPANY_INFO } from '@/lib/constants'
-import { BackgroundEffects } from './background-effects'
 
 export function Hero() {
   const [ref, inView] = useInView({
@@ -51,8 +50,6 @@ export function Hero() {
 
   return (
     <section className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-white via-gray-50 to-white">
-      {/* Background Effects */}
-      <BackgroundEffects variant="hero" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div

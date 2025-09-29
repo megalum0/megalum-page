@@ -5,7 +5,6 @@ import { useInView } from 'react-intersection-observer'
 import { Button } from './button'
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
-import { BackgroundEffects } from './background-effects'
 
 interface PageHeroProps {
   title: string
@@ -85,8 +84,6 @@ export function PageHero({
 
   return (
     <section className={`min-h-[70vh] flex items-center justify-center relative ${getBackgroundClass()} ${className}`}>
-      {/* Background Effects */}
-      <BackgroundEffects variant={variant} />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div

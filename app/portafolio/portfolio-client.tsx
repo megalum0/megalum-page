@@ -7,7 +7,7 @@ import { Button } from '@/components/button'
 import { PortfolioCard } from '@/components/portfolio-card'
 import { PortfolioFilter } from '@/components/portfolio-filter'
 import { PortfolioGallery } from '@/components/portfolio-gallery'
-import { PageHero } from '@/components/page-hero'
+import { PortfolioHeroBackground } from '@/components/portfolio-hero-background'
 import { AnimatedSection, AnimatedItem } from '@/components/animated-section'
 import { COMPANY_INFO, PORTFOLIO_CATEGORIES, PORTFOLIO_ITEMS } from '@/lib/constants'
 import { ArrowRight } from 'lucide-react'
@@ -61,15 +61,45 @@ export function PortfolioClient() {
   return (
     <>
       {/* Hero Section */}
-      <PageHero
-        title="Nuestro Portafolio"
-        subtitle={`Más de ${yearsOfExperience} años de experiencia materializados en proyectos exitosos que demuestran nuestra calidad y compromiso con la excelencia`}
-        variant="portfolio"
-        primaryButtonText="Solicitar cotización"
-        primaryButtonHref="/contacto"
-        secondaryButtonText="Ver nuestros servicios"
-        secondaryButtonHref="/servicios"
-      />
+      <section className="min-h-[70vh] flex items-center justify-center relative">
+        {/* Fondo Animado */}
+        <PortfolioHeroBackground />
+        
+        {/* Contenido */}
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center max-w-4xl mx-auto">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-6">
+              Nuestro Portafolio
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+              Más de {yearsOfExperience} años de experiencia materializados en proyectos exitosos que demuestran nuestra calidad y compromiso con la excelencia
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Button 
+                size="lg" 
+                className="bg-brand hover:bg-brand-dark text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105" 
+                asChild
+              >
+                <Link href="/contacto" className="flex items-center gap-3">
+                  <span>Solicitar cotización</span>
+                  <ArrowRight className="h-5 w-5" />
+                </Link>
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="border-2 border-brand text-brand hover:bg-brand hover:text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105" 
+                asChild
+              >
+                <Link href="/servicios" className="flex items-center gap-3">
+                  <span>Ver nuestros servicios</span>
+                  <ArrowRight className="h-5 w-5" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Statistics Section */}
       <Section className="bg-gray-50">
