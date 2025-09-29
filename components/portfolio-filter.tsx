@@ -13,7 +13,7 @@ export function PortfolioFilter({ categories, activeCategory, onCategoryChange }
   return (
     <div className="flex flex-wrap justify-center gap-3 mb-12">
       <Button
-        variant={activeCategory === 'all' ? 'default' : 'outline'}
+        variant={activeCategory === 'all' ? 'primary' : 'outline'}
         size="sm"
         onClick={() => onCategoryChange('all')}
         className="rounded-full px-6 py-2 font-medium transition-all duration-300"
@@ -24,7 +24,7 @@ export function PortfolioFilter({ categories, activeCategory, onCategoryChange }
       {categories.map((category) => (
         <Button
           key={category.id}
-          variant={activeCategory === category.id ? 'default' : 'outline'}
+          variant={activeCategory === category.id ? 'primary' : 'outline'}
           size="sm"
           onClick={() => onCategoryChange(category.id)}
           className="rounded-full px-4 py-2 font-medium transition-all duration-300 flex items-center gap-2"
