@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import { Section } from '@/components/section'
 import { Button } from '@/components/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/card'
-import { PageHero } from '@/components/page-hero'
+import { ContactHeroBackground } from '@/components/contact-hero-background'
 import { generatePageSEO } from '@/lib/seo'
 import { COMPANY_INFO } from '@/lib/constants'
 import { Phone, Mail, MapPin, MessageCircle, Clock, Send } from 'lucide-react'
@@ -22,12 +22,22 @@ export default function ContactoPage() {
   return (
     <>
       {/* Hero Section */}
-      <PageHero
-        title="Contáctanos"
-        subtitle="Estamos listos para ayudarte con tu proyecto. Contáctanos y recibe una cotización personalizada sin compromiso."
-        variant="contact"
-        showButtons={false}
-      />
+      <section className="min-h-[70vh] flex items-center justify-center relative">
+        {/* Fondo Animado */}
+        <ContactHeroBackground />
+        
+        {/* Contenido */}
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center max-w-4xl mx-auto">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-6">
+              Contáctanos
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+              Estamos listos para ayudarte con tu proyecto. Contáctanos y recibe una cotización personalizada sin compromiso.
+            </p>
+          </div>
+        </div>
+      </section>
 
       <Section>
 
