@@ -95,6 +95,7 @@ export const TESTIMONIALS = [
 export const NAVIGATION = [
   { name: 'Inicio', href: '/' },
   { name: 'Servicios', href: '/servicios' },
+  { name: 'Diseño', href: '/diseno' },
   { name: 'Portafolio', href: '/portafolio' },
   { name: 'Quiénes Somos', href: '/quienes-somos' },
   { name: 'Contacto', href: '/contacto' },
